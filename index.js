@@ -1,14 +1,16 @@
+ 
 var http = require('http');
-var cadastro = require('./myRegister');
-var login = require('./login');
-var home = require ('./home');
-var consultas = require ('./consultas');
+var dt = require('./myloginmodule');
 
 http.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write("Home: " + home.home() + "<br>");
-  res.write("Cadastre-se: " + cadastro.myRegister() + "<br>");
-  res.write("Login: " + login.login() + "<br>");
-  res.write("Consultas: " + consultas.consultas());
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write(dt.myDateTime() + ("<br><br>")); 
+  res.write("<center>" + "Deseja fazer login como?" + "<br><br>");
+  res.write("<center>" + "Medico" + "<br><br>");
+  res.write("<center>" + "Paciente" + "<br><br>");
+  res.write("<center>" + "Administrador" + "<br><br>");
   res.end();
-}).listen(5015);
+}).listen(8010);
+
+
+
